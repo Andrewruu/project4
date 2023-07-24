@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+
 const Signup = ({onLogin}) => {
 
   const [name, setName] = useState("");
@@ -36,7 +36,7 @@ const Signup = ({onLogin}) => {
         navigate("/home");
         r.json().then((user) => onLogin(user));
       } else {
-        r.json().then((err) => toast.error(err.errors && err.errors[0]));
+        r.json().then((err) => setErrors(err.errors && err.errors[0]));
       }
     });
   }
@@ -52,12 +52,6 @@ const Signup = ({onLogin}) => {
         <input type="password" placeholder="Password" onChange={handlePasswordChange}/>
         <input type="number" placeholder="Fund" onChange={handleFundChange}/>
         <button>Signup</button>
-        <span>
-          Already have an account?{" "}
-          <Link to="/">
-            <a>Login</a>
-          </Link>
-        </span>
       </form>
     </div>
   );

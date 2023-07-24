@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
+
 const Login = ({ onLogin }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -45,7 +46,6 @@ const Login = ({ onLogin }) => {
           <input type="text" onChange={handleUsernameChange} placeholder="Username" />
           <input type="password" onChange={handlePasswordChange} placeholder="Password"/>
           <button>Login</button>
-          <span>New Here? <Link to="/signup"><a>Register</a></Link></span>
         </form>
     
     </div>

@@ -8,11 +8,10 @@ function UserProvider({ children }) {
   const [user, setUser] = useState(null);
   
   useEffect(() => {
-    fetch("/me").then((r) => {
+    fetch("/me")
+    .then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user));
-      }else {
-        toast.error("Please log in");
       }
     });
   }, []);

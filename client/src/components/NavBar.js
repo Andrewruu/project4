@@ -1,9 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function NavBar({ user, setUser }) {
+
   function handleLogoutClick() {
     fetch("/logout", { method: "DELETE" }).then((r) => {
+      console.log(r)
       if (r.ok) {
         setUser(null);
       }
@@ -11,19 +13,10 @@ function NavBar({ user, setUser }) {
   }
 
   return (
-    <Wrapper>
-      <Logo>
-        <Link to="/">SellBuyNow</Link>
-      </Logo>
-      <Nav>
-        <Button as={Link} to="/new">
-          New Product
-        </Button>
-        <Button variant="outline" onClick={handleLogoutClick}>
-          Logout
-        </Button>
-      </Nav>
-    </Wrapper>
+    <nav>
+      <h1>UShop</h1>
+        <button variant="outline" onClick={handleLogoutClick}>Logout </button>
+    </nav>
   );
 }
 
